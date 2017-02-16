@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <data>
+            <import alias="unit" type="com.trademarked.trumptimer.DateCalculator.DateUnit"/>
+            <import alias="v" type="android.view.View"/>
+            <variable name="calculator" type="com.trademarked.trumptimer.DateCalculator"/>
+        </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/window_background">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/victory_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_victory"
+                android:tint="@color/unit_value"
+                tools:ignore="ContentDescription"
+                android:layout_gravity="center"
+                android:visibility="@{calculator.isPastTarget() ? v.VISIBLE : v.GONE}"/>
+
+            <RelativeLayout
+                android:id="@+id/countdown_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:visibility="@{calculator.isPastTarget() ? v.GONE : v.VISIBLE}"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="com.trademarked.trumptimer.MainActivity">
+
+                <TextView
+                    android:id="@+id/remaining_years_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.YEARS)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_years_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_years_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.YEARS)}"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/unit_group_margin"
+                    android:id="@+id/remaining_weeks_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_years_label"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.WEEKS)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_weeks_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_weeks_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.WEEKS)}"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/unit_group_margin"
+                    android:id="@+id/remaining_days_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_weeks_label"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.DAYS)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_days_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_days_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.DAYS)}"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/unit_group_margin"
+                    android:id="@+id/remaining_hours_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_days_label"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.HOURS)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_hours_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_hours_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.HOURS)}"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/unit_group_margin"
+                    android:id="@+id/remaining_minutes_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_hours_label"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.MINUTES)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_minutes_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_minutes_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.MINUTES)}"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/unit_group_margin"
+                    android:id="@+id/remaining_seconds_value"
+                    style="@style/Unit.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_minutes_label"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getValue(unit.SECONDS)}"/>
+
+                <TextView
+                    android:id="@+id/remaining_seconds_label"
+                    style="@style/Unit.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remaining_seconds_value"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{calculator.getLabel(unit.SECONDS)}"/>
+
+            </RelativeLayout>
+        </FrameLayout>
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Trump Timer</string>
+    <string name="unit_years">years</string>
+    <string name="unit_months">months</string>
+    <string name="unit_weeks">weeks</string>
+    <string name="unit_days">days</string>
+    <string name="unit_hours">hours</string>
+    <string name="unit_minutes">minutes</string>
+    <string name="unit_seconds">seconds</string>
+</resources>
